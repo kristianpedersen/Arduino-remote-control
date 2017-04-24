@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Arduino-kontrollpanel</title>
+    <script src="http://netbeast.github.io/colorsys/browser.js"></script>
+    <script src="https://cdn.pubnub.com/pubnub-3.16.1.min.js"></script>
+    <script>
+    const pubnub = PUBNUB({
+        publish_key: 'pub-c-57c4c5d7-373c-4901-b8c4-f0c53d7cb7e2',
+        subscribe_key: 'sub-c-8ff7e03a-6d6c-11e6-80e7-02ee2ddab7fe'
+    });
+    const getSliderValue = () => {
+        var slider = document.getElementById("lol");
+        pubnub.publish({
+        	channel: "rgblol",
+        	message: {
+        		color: slider.value
+        	}
+        });
+        console.log(slider.value);
+    };
+    </script>
+    <script src="./node_modules/p5/lib/p5.js"></script>
+    <!-- <script src="libraries/p5.dom.js"></script> -->
+    <!-- <script src="libraries/p5.sound.js"></script> -->
+    <script src="sketch.js"></script>
+</head>
+
+<body>
+    <input onChange="getSliderValue()" type="range" id="lol" name="lol" min="0" max="255" value="0">
+</body>
+
+</html>

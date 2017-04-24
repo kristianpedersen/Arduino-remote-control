@@ -1,0 +1,19 @@
+{
+  "name": "haha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colorsys": "^1.0.9",
+    "express": "^4.14.0",
+    "johnny-five": "^0.10.0",
+    "p5": "^0.5.8",
+    "pubnub": "^4.0.6"
+  }
+}
